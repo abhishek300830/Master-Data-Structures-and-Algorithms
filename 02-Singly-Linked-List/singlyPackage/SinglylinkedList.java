@@ -67,15 +67,61 @@ public class SinglylinkedList {
             return;
         }
         Node tempNode = head;
-        while (tempNode != null) {
+        int i = 0;
+        while (i < size) {
             if (tempNode.value == nodeValue) {
-                System.out.println("Match Found! at Location : " + tempNode);
+                System.out.println(nodeValue + " Found! at Location : " + i);
                 return;
             }
             tempNode = tempNode.next;
+            i++;
         }
         System.out.println("Value Not Found");
 
+    }
+
+    // Deletion in Singly Linked List
+    public void deletionOfLinkedList(int location) {
+        if (head == null) {
+            System.out.println("Linked List is Empty");
+            return;
+        } else if (location == 0) { // location 0 means deleting first element
+            head = head.next;
+            size--;
+            if (size == 0) {
+                tail = null;
+            }
+        } else if (location >= size) { // location >= size means deleting from end
+            Node tempNode = head;
+            for (int i = 0; i < size - 2; i++) {
+                tempNode = tempNode.next;
+            }
+            if (tempNode == head) {
+                tail = head = null;
+                size--;
+                return;
+            }
+            System.out.println("xxxx" + tempNode.value);
+            tempNode.next = null;
+            tail = tempNode;
+            size--;
+        } else { // deleting at a given location
+            Node tempNode = head;
+            for (int i = 0; i < location - 1; i++) {
+                tempNode = tempNode.next;
+            }
+            tempNode.next = tempNode.next.next;
+            size--;
+        }
+
+    }
+
+    // deleting entire linked List
+    public void deleteEntireLinkedList() {
+        head = null;
+        tail = null;
+        size = 0;
+        System.out.println("Linked List Deleted Successfully");
     }
 
 }

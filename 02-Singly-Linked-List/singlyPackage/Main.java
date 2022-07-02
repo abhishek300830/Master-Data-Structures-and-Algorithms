@@ -17,5 +17,9 @@ public class Main {
 
         sll.TraverseSinglyLinkedList();
         sll.searchLinkedList(30);
+        sll.deletionOfLinkedList(4);
+        sll.TraverseSinglyLinkedList(); // printing linked list
+        sll.deleteEntireLinkedList(); // deleting entire linked list
+        sll.TraverseSinglyLinkedList(); // traversing linked list
     }
 }
