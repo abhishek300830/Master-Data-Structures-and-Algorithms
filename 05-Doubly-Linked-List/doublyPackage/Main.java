@@ -6,8 +6,14 @@ public class Main {
         dll.createDLL(5);
         dll.insertDLL(1, 0);
         dll.insertDLL(10, 2);
-        System.out.println(dll.head.value);
-        System.out.println(dll.head.next.value);
-        System.out.println(dll.head.next.next.value);
+        dll.insertDLL(20, 3);
+        // System.out.println(dll.head.value);
+        // System.out.println(dll.head.next.value);
+        // System.out.println(dll.head.next.next.value);
+        System.out.print("Traversal : ");
+        dll.traverseDLL();
+        System.out.print("Reverse Traversal : ");
+        dll.reverseTraversalDLL();
+        dll.searchDLL(0);
     }
 }

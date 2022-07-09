@@ -50,4 +50,58 @@ public class DoublyLinkedList {
         }
         size++;
     }
+
+    // traversal in doubly linked list
+    public void traverseDLL() {
+        if (head == null) {
+            System.out.println("Linked List is Empty");
+        } else {
+            DoublyNode tempNode = head;
+            for (int i = 0; i < size; i++) {
+                System.out.print(tempNode.value);
+                if (i < size - 1) {
+                    System.out.print(" -> ");
+                }
+                tempNode = tempNode.next;
+            }
+            System.out.println();
+        }
+    }
+
+    // Reverse Traversal in dll
+    public void reverseTraversalDLL() {
+        if (head == null) {
+            System.out.println("Linked List is empty");
+        } else {
+            DoublyNode tempNode = tail;
+            for (int i = 0; i < size; i++) {
+                System.out.print(tempNode.value);
+                if (i < size - 1) {
+                    System.out.print(" <- ");
+                }
+                tempNode = tempNode.prev;
+            }
+            System.out.println();
+
+        }
+    }
+
+    // Searching in dll
+    public boolean searchDLL(int nodeValue) {
+        if (head == null) {
+            System.out.println("Linked List is empty");
+        }
+        if (head != null) {
+            DoublyNode tempNode = head;
+            for (int i = 0; i < size; i++) {
+                if (tempNode.value == nodeValue) {
+                    System.out.println(nodeValue + " Fount at location : " + i);
+                    return true;
+                }
+                tempNode = tempNode.next;
+            }
+        }
+        System.out.println("Node Not Found");
+        return false;
+    }
 }
