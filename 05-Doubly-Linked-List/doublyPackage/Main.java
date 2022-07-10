@@ -15,5 +15,10 @@ public class Main {
         System.out.print("Reverse Traversal : ");
         dll.reverseTraversalDLL();
         dll.searchDLL(0);
+        dll.traverseDLL();
+        dll.deleteNodeDLL(2);
+        dll.traverseDLL();
+        dll.deleteEntireDLL();
+        dll.traverseDLL();
     }
 }

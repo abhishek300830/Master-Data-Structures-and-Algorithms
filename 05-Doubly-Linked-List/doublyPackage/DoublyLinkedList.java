@@ -104,4 +104,59 @@ public class DoublyLinkedList {
         System.out.println("Node Not Found");
         return false;
     }
+
+    // Deletion Method
+    public void deleteNodeDLL(int location) {
+        if (head == null) {
+            System.out.println("Linked List not Exists");
+            return;
+        } else if (location == 0) {
+            // deletion of first Node
+            if (size == 1) {
+                head = null;
+                tail = null;
+                size--;
+                return;
+            } else {
+                head = head.next;
+                head.prev = null;
+                size--;
+            }
+        } else if (location >= size - 1) {
+            // deleting from end of Linked list
+            if (size == 1) {
+                head = null;
+                tail = null;
+                size--;
+                return;
+            } else {
+                tail = tail.prev;
+                tail.next = null;
+                size--;
+            }
+        } else {
+            // Deleting a node from given location
+            DoublyNode tempNode = head;
+            for (int i = 0; i < location - 1; i++) {
+                tempNode = tempNode.next;
+            }
+            tempNode.next = tempNode.next.next;
+            tempNode.next.prev = tempNode;
+            size--;
+        }
+
+    }
+
+    // Delete Entire Linked List
+    public void deleteEntireDLL() {
+        DoublyNode tempNode = head;
+        for (int i = 0; i < size; i++) {
+            tempNode.prev = null;
+            tempNode = tempNode.next;
+        }
+        head = null;
+        tail = null;
+        size = 0;
+        System.out.println("Doubly Linked List is Successfully Deleted.");
+    }
 }
