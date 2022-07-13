@@ -1,4 +1,4 @@
-package stackPackage;
+package stackUsingArray;
 // This Stack is Using Arrays
 
 public class Stack {
