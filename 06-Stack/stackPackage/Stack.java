@@ -1,4 +1,5 @@
 package stackPackage;
+// This Stack is Using Arrays
 
 public class Stack {
     int array[];
