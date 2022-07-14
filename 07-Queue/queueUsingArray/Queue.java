@@ -31,7 +31,7 @@ public class Queue {
     }
 
     // enqueue Method
-    public void enqueue(int value) {
+    public void enQueue(int value) {
         if (isFull()) {
             System.out.println("Queue is full");
         } else if (isEmpty()) {
@@ -43,5 +43,37 @@ public class Queue {
             array[++topOfQueue] = value;
             System.out.println("Value Inserted Successfully.");
         }
+    }
+
+    // Dequeue Method
+    public int deQueue() {
+        if (isEmpty()) {
+            System.out.println("Queue Is Empty.");
+            return -1;
+        } else {
+            int deletedValue = array[beginningOfQueue];
+            beginningOfQueue++;
+            if (beginningOfQueue > topOfQueue) {
+                beginningOfQueue = topOfQueue = -1;
+            }
+            return deletedValue;
+        }
+    }
+
+    // peek method
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Queue is Empty");
+            return -1;
+        } else {
+            return array[beginningOfQueue];
+        }
+    }
+
+    // deleting Queue
+    public void delete() {
+        topOfQueue = beginningOfQueue = -1;
+        array = null;
+        System.out.println("Queue Deleted Successfully");
     }
 }
