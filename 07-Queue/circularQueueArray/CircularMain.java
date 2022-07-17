@@ -10,6 +10,9 @@ public class CircularMain {
         queue.enQueue(10);
         queue.enQueue(20);
         queue.enQueue(30);
-        queue.enQueue(40);
+        int deQueue = queue.deQueue();
+        System.out.println("DeQueue : " + deQueue);
+        int peekValue = queue.peek();
+        System.out.println("peekValue : " + peekValue);
     }
 }
