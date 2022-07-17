@@ -121,6 +121,6 @@ public class LinkedList {
         head = null;
         tail = null;
         size = 0;
-        System.out.println("Linked List Deleted Successfully");
+        // System.out.println("Linked List Deleted Successfully");
     }
 }
