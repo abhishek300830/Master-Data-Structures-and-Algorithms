@@ -96,10 +96,10 @@ public class BinarySearchTree {
     // search Method
     BinaryNode search(BinaryNode node, int value) {
         if (node == null) {
-            System.out.println("not Found");
+            System.out.println("\nnot Found");
             return null;
         } else if (value == node.value) {
-            System.out.println("Value Found");
+            System.out.println("\nValue Found");
             return node;
         } else if (value < node.value) {
             return search(node.left, value);
@@ -107,5 +107,52 @@ public class BinarySearchTree {
             return search(node.right, value);
         }
 
+    }
+
+    // Minimum node or Successor Node in right sub tree
+    static BinaryNode minimumNode(BinaryNode node) {
+        if (node.left == null) {
+            return node;
+        } else {
+            return minimumNode(node.left);
+        }
+    }
+
+    // delete Node from a Tree
+    public BinaryNode deleteNode(BinaryNode root, int value) {
+        if (root == null) {
+            System.out.println("not Found");
+            return null;
+        }
+        if (value < root.value) {
+            root.left = deleteNode(root.left, value);
+        } else if (value > root.value) {
+            root.right = deleteNode(root.right, value);
+        } else {
+            // tree Node has 2 childs
+            if (root.left != null && root.right != null) {
+                BinaryNode temp = root;
+                BinaryNode minNode = minimumNode(temp.right);
+                root.value = minNode.value;
+                root.right = deleteNode(root.right, minNode.value);
+                // tree has only left chid
+            } else if (root.left != null) {
+                root = root.left;
+                // tree has only right child
+            } else if (root.right != null) {
+                root = root.right;
+                // this is leaf node
+            } else {
+                root = null;
+
+            }
+        }
+        return root;
+    }
+
+    // Delete Complete Binary Tree
+    public void DeleteAll() {
+        root = null;
+        System.out.println("TREE DELETED");
     }
 }

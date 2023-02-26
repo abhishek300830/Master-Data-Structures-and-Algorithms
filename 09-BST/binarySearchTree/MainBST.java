@@ -21,6 +21,14 @@ public class MainBST {
         System.out.println("\nLevelOrder");
         newBST.levelOrder();
         newBST.search(newBST.root, 40);
+        newBST.deleteNode(newBST.root, 90);
+        System.out.println("\nLevelOrder for Checking Delete");
+        newBST.levelOrder();
+        System.out.println("Deleting Complete Tree");
+        newBST.DeleteAll();
+        System.out.println("\nLevelOrder for Checking DeleteAll");
+        newBST.levelOrder();
+
     }
     // Delete Node in BST
 }
