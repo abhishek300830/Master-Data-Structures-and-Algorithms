@@ -10,7 +10,7 @@ public class fibonacciSeries {
     }
 
     public static void main(String[] args) {
-        int result = fibonacci(-3);
+        int result = fibonacci(10);
         if (result == -1) {
             System.out.println("Enter Positive Number");
         } else {
