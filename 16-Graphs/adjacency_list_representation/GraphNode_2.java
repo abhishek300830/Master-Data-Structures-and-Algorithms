@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class GraphNode_2 {
     public String name;
     public int index;
+    public boolean isVisited;
     
     public ArrayList<GraphNode_2> neighbours = new ArrayList<>();
     

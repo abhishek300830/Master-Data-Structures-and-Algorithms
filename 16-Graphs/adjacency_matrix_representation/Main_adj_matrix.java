@@ -9,7 +9,7 @@ public class Main_adj_matrix {
         nodeList.add(new GraphNode("D", 3));
         nodeList.add(new GraphNode("E", 4));
         
-        Graph_2 graph = new Graph_2(nodeList);
+        Graph graph = new Graph(nodeList);
         // connecting A <-> B , A <-> C , A <-> D and vice versa.
         graph.addUnidirectionalEdge(0, 1);
         graph.addUnidirectionalEdge(0, 2);
@@ -22,6 +22,9 @@ public class Main_adj_matrix {
         graph.addUnidirectionalEdge(3, 4);
         
         graph.printAdjacencyMatrix();
+        
+        // graph.bfs();
+        graph.dfs();
         
     }
 }

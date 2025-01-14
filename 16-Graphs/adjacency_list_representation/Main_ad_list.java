@@ -22,5 +22,9 @@ public class Main_ad_list {
         graph.addUnidirectionalEdge(3, 4);
         
         graph.print_adj_list();
+        
+        // Uncomment the one which need to test
+        // graph.bfs();
+        // graph.dfs();
     }
 }
