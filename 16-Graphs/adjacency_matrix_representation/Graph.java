@@ -84,6 +84,8 @@ public class Graph {
         }
     }
     
+
+    
     public void bfs() {
         for (GraphNode node : nodeList) {
             if(!node.isVisited){
@@ -99,4 +101,34 @@ public class Graph {
             }
         }
     }
+    
+    // TOPOLOGICAL SORT
+    
+    public void addDirectedEdge(int x, int y) {
+        adjacencyMatrix[x][y] = 1;
+    }
+    
+    private void topologicalVisit(GraphNode node, Stack<GraphNode> stack) {
+        for (GraphNode graphNode : get_neighbours(node)) {
+            if(!graphNode.isVisited) {
+                topologicalVisit(graphNode, stack);
+            }
+        }
+        node.isVisited = true;
+        stack.push(node);
+    }
+    
+    public void topologincalSort() {
+        Stack<GraphNode> stack = new Stack<>();
+        for (GraphNode node : nodeList) {
+            if (!node.isVisited) {
+                topologicalVisit(node, stack);
+            }
+        }
+        while (!stack.isEmpty()) {
+            System.out.print(stack.pop().name+" ");
+        }
+    }
+    
+    
 }

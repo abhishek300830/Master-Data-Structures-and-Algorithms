@@ -21,10 +21,36 @@ public class Main_ad_list {
         // D <-> E
         graph.addUnidirectionalEdge(3, 4);
         
-        graph.print_adj_list();
+        // graph.print_adj_list();
         
         // Uncomment the one which need to test
         // graph.bfs();
         // graph.dfs();
+        
+        
+        // TOPOLOGICAL SORT
+        ArrayList<GraphNode_2> topoNodeList = new ArrayList<>();
+        topoNodeList.add(new GraphNode_2("A", 0));
+        topoNodeList.add(new GraphNode_2("B", 1));
+        topoNodeList.add(new GraphNode_2("C", 2));
+        topoNodeList.add(new GraphNode_2("D", 3));
+        topoNodeList.add(new GraphNode_2("E", 4));
+        topoNodeList.add(new GraphNode_2("F", 5));
+        topoNodeList.add(new GraphNode_2("G", 6));
+        topoNodeList.add(new GraphNode_2("H", 7));
+        
+        Graph_2 topoGraph = new Graph_2(topoNodeList);
+        
+        topoGraph.addDirectionalEdge(0, 2);
+        topoGraph.addDirectionalEdge(2, 4);
+        topoGraph.addDirectionalEdge(4, 7);
+        topoGraph.addDirectionalEdge(4, 5);
+        topoGraph.addDirectionalEdge(5, 6);
+        topoGraph.addDirectionalEdge(1, 2);
+        topoGraph.addDirectionalEdge(1, 3);
+        topoGraph.addDirectionalEdge(3, 5);
+        
+        topoGraph.print_adj_list();
+        topoGraph.topologicalSort();
     }
 }

@@ -65,6 +65,23 @@ public class Graph_2 {
         }
     }
     
+    public void topologicalVisit(GraphNode_2 node, Stack<GraphNode_2> stack) {
+        for ( GraphNode_2 neighbour : node.neighbours) {
+            if(!neighbour.isVisited) {
+                topologicalVisit(neighbour, stack);
+            }
+        }
+        node.isVisited = true;
+        stack.push(node);
+    }
+    
+    // Topological Sort 
+    public void addDirectionalEdge(int x, int y) {
+        GraphNode_2 first = this.nodeList.get(x);
+        GraphNode_2 second = this.nodeList.get(y);
+        first.neighbours.add(second);
+    }
+    
     public void bfs() {
         for (GraphNode_2 node : nodeList) {
             if(!node.isVisited){
@@ -78,6 +95,18 @@ public class Graph_2 {
             if (!node.isVisited) {
                 dfsVisit(node);
             }
+        }
+    }
+    
+    public void topologicalSort() {
+        Stack<GraphNode_2> stack = new Stack<>();
+        for(GraphNode_2 node : nodeList) {
+            if (!node.isVisited) {
+                topologicalVisit(node, stack);
+            }
+        }
+        while(!stack.isEmpty()) {
+            System.out.print(stack.pop().name + " ");
         }
     }
 }
