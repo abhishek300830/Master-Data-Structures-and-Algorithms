@@ -109,4 +109,28 @@ public class Graph_2 {
             System.out.print(stack.pop().name + " ");
         }
     }
+    
+    public void pathPrint(GraphNode_2 node) {
+        if (node.parent != null) pathPrint(node.parent);
+        System.out.print(node.name + " ");
+    }
+    
+    public void BFSforSSSPP(GraphNode_2 node) {
+        LinkedList<GraphNode_2> queue = new LinkedList<>();
+        queue.add(node);
+        while(!queue.isEmpty()) {
+            GraphNode_2 currNode = queue.poll();
+            currNode.isVisited = true;
+            System.out.print("Printing path for node "+currNode.name+" : ");
+            pathPrint(currNode);
+            System.out.println();
+            for (GraphNode_2 neighbour: currNode.neighbours) {
+                if(!neighbour.isVisited){
+                    queue.add(neighbour);
+                    neighbour.isVisited = true;
+                    neighbour.parent = currNode;
+                }
+            }
+        }  
+    }
 }

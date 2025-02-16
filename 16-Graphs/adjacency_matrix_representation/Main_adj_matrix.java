@@ -51,5 +51,31 @@ public class Main_adj_matrix {
         topoGraph1.printAdjacencyMatrix();
         topoGraph1.topologincalSort();
         
+        // Single Source Shortest Path Problem
+        System.out.println();
+        System.out.println("SSSPP...");
+        ArrayList<GraphNode_2> SSSPPNodeList = new ArrayList<>();
+        SSSPPNodeList.add(new GraphNode_2("A", 0));
+        SSSPPNodeList.add(new GraphNode_2("B", 1));
+        SSSPPNodeList.add(new GraphNode_2("C", 2));
+        SSSPPNodeList.add(new GraphNode_2("D", 3));
+        SSSPPNodeList.add(new GraphNode_2("E", 4));
+        SSSPPNodeList.add(new GraphNode_2("F", 5));
+        SSSPPNodeList.add(new GraphNode_2("G", 6));
+        
+        Graph_2 SSSPPGraph = new Graph_2(SSSPPNodeList);
+        
+        SSSPPGraph.addUnidirectionalEdge(0, 1);
+        SSSPPGraph.addUnidirectionalEdge(0, 2);
+        SSSPPGraph.addUnidirectionalEdge(1, 3);
+        SSSPPGraph.addUnidirectionalEdge(1, 6);
+        SSSPPGraph.addUnidirectionalEdge(2, 3);
+        SSSPPGraph.addUnidirectionalEdge(2, 4);
+        SSSPPGraph.addUnidirectionalEdge(3, 5);
+        SSSPPGraph.addUnidirectionalEdge(4, 5);
+        SSSPPGraph.addUnidirectionalEdge(5, 6);
+        
+        SSSPPGraph.BFSforSSSPP(SSSPPNodeList.get(0));
+        
     }
 }

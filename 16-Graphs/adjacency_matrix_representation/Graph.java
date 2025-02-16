@@ -130,5 +130,31 @@ public class Graph {
         }
     }
     
+    // Single Source Shortest Path Problem
+    
+    public void pathPrint(GraphNode node) {
+        if (node.parent != null) pathPrint(node.parent);
+        System.out.println(node.name + " ");
+    }
+    
+    public void BFSforSSSPP(GraphNode node) {
+        LinkedList<GraphNode> queue = new LinkedList<>();
+        queue.add(node);
+        
+        while(!queue.isEmpty()){
+            GraphNode currNode = queue.poll();
+            currNode.isVisited = true;
+            System.out.println("Printing Shortest Path for "+currNode.name+" : ");
+            pathPrint(currNode);
+            for(GraphNode neighbour: get_neighbours(currNode)){
+                if(!neighbour.isVisited) {
+                    queue.add(neighbour);
+                    neighbour.isVisited = true;
+                    neighbour.parent = currNode;
+                }
+            }
+            
+        }
+    }
     
 }
